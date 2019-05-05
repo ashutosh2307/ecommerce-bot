@@ -1,23 +1,50 @@
+
 {% extends "base.html" %}
+{% load static%}
+{% url './products:list' as product_list_url %}
+
+{% block base_head%}
+  <title> {{ object.title}} </title>
+  <link rel="stylesheet" href='{% static "css/detail.css" %}'>
+{% endblock %}
 
 {% block content%}
-    {% comment %} {{ object.image.url}} <br /> {% endcomment %}
-    <br />
-    <div class='row'>
-        <div class='col-12 col-md-6'>
-            <h1> {{ object.title}} </h1>
-            {{ object.timestamp|timesince }} ago 
+
+
+<div class="container mt-4">
+    <div class="row" >
+        <div class="col-md-3">
+            <div class="list-group">
+                <li class="list-group-item active">Detail</li>
+                <li class="list-group-item"><b>Name:</b> <i>{{ object.title}}</i></li>
+                <li class="list-group-item"><b>Price:</b> <i>&#8377;{{ object.price}}</i></li>
+                
+                {% comment %} <a href="#"><li class="list-group-item">Go Back</li></a> {% endcomment %}
+                <a href="http://127.0.0.1:8000/products/"><li class="list-group-item text-center">Go Back</li></a>
+            </div>
+        </div>
+        <div class="col-md-9" >
             
             {% if object.image %}
-                <img src='{{ object.image.url }}' class='img-fluid' />
+                <img src='{{ object.image.url }}' class='img-fluid mb-3' />
             {% endif %}
+            
+            <div class="caption-full" >
+                    <div class="pull-right">{% include 'products/snippets/update-cart.html' with product=object cart=cart %}</div>
+                    <h3> {{ object.title}} </h3>
+                    <p class='pb-1' id='time_ago'>{{ object.timestamp|timesince }} ago<p>
+                            
+            </div>
 
-            {{ object.description|linebreaks}} <br />
+            <div id='description'>
+                <h2 class="text-center"> &#8377;  {{ object.price}} </h2>
+                <br />
+                {{ object.description|linebreaks}} <br />
+            </div>
+
         </div>
-
-        <div class='col-12 col-md-6'>
-            {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
-        </div>
-
     </div>
+</div>
+
+
 {% endblock %}

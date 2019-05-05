@@ -1,8 +1,16 @@
-<form method='GET' action='{% url "search:query" %}' class="form my-2 my-lg-0">
+{% comment %} <form method='GET' action='{% url "search:query" %}' class="form my-2 my-lg-0">
   <div class='input-group'>
     <input class="form-control" type="text" placeholder="Search" name='q' aria-label="Search" value='{{ request.GET.q }}'>
     <span class='input-group-btn'>
         <button class="btn btn-outline-success" type="submit">Search</button>
     </span>
     </div>
+</form> {% endcomment %}
+
+<form class="form-inline my-2 my-lg-0 ml-auto" method='GET' action='{% url "search:query" %}'>
+  <div class="input-group add-on" id="search-div">
+    <button id="search_button" class="btn btn-default" id="search_icon_btn" type="submit" data-etracking="true" data-ecategory="search"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <input id="search_bar" class="form-control" type="search" placeholder="E.g.:Batman tshirts" name='q' aria-label="Search" value='{{ request.GET.q }}'>
+      <!-- <button class="btn btn-default" type="submit">Search</button> -->
+  </div>
 </form>

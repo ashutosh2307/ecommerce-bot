@@ -1,3 +1,166 @@
-body {
-    color: grey
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  html, body {
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    width: 100%;
+    font-family: Arial;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #search_button, #search-div {
+      background-color: white;
+  }
+
+  #search_bar {
+    width:400px !important;
+    height: 35px;
+    border-color: white;
+    font-size: 12px;
+  }
+
+  #offer_nav {
+    background: #ffab31 !important;
+    color: #fff !important;
+    padding: 0px 12px;
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.nav_lis {
+    padding-top: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 13px;
+}
+
+#header_image {
+    margin-top: 20px;
+}
+
+#landing_image {
+    height: 390px;
+    width: 12000px;
+}
+
+.popular_items {
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px; 
+}
+
+#most_popular h2{
+	margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+h2:after{
+	width: 90px;
+	background-color: #e67e22;
+	height: 3px;
+	display: block;
+	margin: 0 auto;
+    margin-top: 13px;
+    margin-bottom: 20px;
+	content: "";
+}
+
+#sale, #decore, #headphones{
+    margin-top: 50px;
+}
+
+.caption_text {
+    font-size: 12px;
+}
+
+.hello{
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+.price {
+    color: red;
+    font-size: 13px;
+}
+
+.available {
+    color: white;
+    background-color: black;
+    font-size: 10px;
+    text-align: right;
+    margin-top: -7px;
+    margin-right: -4px;
+    margin-left: 55px;
+    margin-bottom: 5px;
+}
+
+.cut {
+    color: gray;
+}
+
+.logo>img{
+    width: 130px;
+    height: 100px;
+}
+
+#trust {
+    margin-top: 50px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-color: white;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+}
+
+#trust>h6 {
+    margin-bottom: 10px;
+}
+
+.ending{
+    background: #313131;
+    padding-top: 30px;
+    color: white;
+}
+
+.end ul{
+    list-style : none;
+    float: left;
+}
+
+
+
+.end ul li a{
+	text-decoration: none;
+	color: grey;
+	font-size: 10px;
+}
+
+.social ul{
+	float: left;
+	list-style : none;
+}
+
+.social ul li{
+	display: inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.social ul li a{
+	text-decoration: none;
+	color: grey;
+}
+
+.social ul li a i{
+	font-size: 20px;
+}
+
+.social ul li a:hover{
+	color: #e67e22;
 }

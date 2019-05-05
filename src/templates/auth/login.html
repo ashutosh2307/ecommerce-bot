@@ -1,11 +1,26 @@
 {% extends "base.html" %}
+{% load static%}
 
+
+{% block base_head%}
+  <title> Login </title>
+  <link rel="stylesheet" href='{% static "css/login.css" %}'>
+{% endblock %}
 
 {% block content%}
-    <h1>Login</h1>
-    <form method="POST"> {% csrf_token %}
-        {{form}}
-        <button type="submit" class="btn-default">submit</button>
-    </form>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <div id="login_form">
+                    <h1>Login</h1>
+                    <br/>
+                    <form method="POST"> {% csrf_token %}
+                        {{form}}
+                        <button type="submit" class="btn-default">submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

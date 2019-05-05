@@ -1,22 +1,43 @@
 {% extends "base.html" %}
 
-{% block content %}
-        <div class='row'>
+{% load static%}
 
-    {% for obj in object_list %}
-        <div class='col'>
-        {{ forloop.counter }}
-        {% include 'products/snippets/card.html' with instance=obj %}  
-        
-        {% if forloop.counter|divisibleby:3 %}
-         </div> </div><div class='row'><div class='col-12'><hr/></div>
-        {% comment %} {% elif forloop.counter|divisibleby:2 %}
-            </div> </div><div class='row'><div class='col-12'><hr/></div> {% endcomment %}
-        {% else %}
-         </div>  
-        {% endif %}
-       
-    
-    {% endfor %}
-</div>
+
+{% block base_head%}
+  <title> Products </title>
+  <link rel="stylesheet" href='{% static "css/product_list.css" %}'>
+{% endblock %}
+
+
+{% block content %}
+     <div class='container-fluid' id='list_div'>
+           <div class='row'>
+                <div class='col-md-2'></div>
+
+                <div class='col-md-10'>
+                
+                    <div class='container'>
+                    
+                        <div class='row'>
+
+                            {% for obj in object_list %}
+                                <div class='col'>
+                                {% include 'products/snippets/card.html' with instance=obj %}  
+                                
+                                {% if forloop.counter|divisibleby:3 %}
+                                </div> </div><div class='row'><div class='col-12'><hr/></div>
+                                {% comment %} {% elif forloop.counter|divisibleby:2 %}
+                                    </div> </div><div class='row'><div class='col-12'><hr/></div> {% endcomment %}
+                                {% else %}
+                                </div>  
+                                {% endif %}
+
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+           </div>
+     </div>
 {% endblock %}
