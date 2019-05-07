@@ -54,6 +54,47 @@ class ProductManager(models.Manager):
     # def search(self, query):
     #     return self.get_queryset().active().search(query)
 
+
+GENDER_CHOICES = (
+    ('male', 'MALE'),
+    ('female', 'FEMALE')
+)
+
+RELATION_CHOICES = {
+    ('brother', 'BROTHER'),
+    ('sister', 'SISTER'),
+    ('mom', 'MOM'),
+    ('dad', 'DAD'),
+    ('mom', 'MOM'),
+    ('friend', 'FRIEND'),
+    ('girl friend', 'GIRL FRIEND'),
+    ('boy friend', 'BOY FRIEND'),
+    ('other', 'OTHER'),
+}
+
+RELATION_CHOICES = {
+    ('brother', 'BROTHER'),
+    ('sister', 'SISTER'),
+    ('mom', 'MOM'),
+    ('dad', 'DAD'),
+    ('mom', 'MOM'),
+    ('friend', 'FRIEND'),
+    ('girl friend', 'GIRL FRIEND'),
+    ('boy friend', 'BOY FRIEND'),
+    ('other', 'OTHER'),
+}
+
+INTRESTS_CHOICES = {
+    ('tech', 'TECH'),
+    ('traveling', 'TRAVELLING'),
+    ('reading', 'READING'),
+    ('art', 'ART'),
+    ('music', 'MUSIC'),
+    ('sports', 'SPORTS'),
+    ('painting', 'PAINTING'),
+    ('other', 'OTHER'),
+}
+
 class Product(models.Model):
     title           = models.CharField(max_length= 100)
     slug            = models.SlugField(blank=True, unique=True)
@@ -63,6 +104,14 @@ class Product(models.Model):
     featured        = models.BooleanField(default= False)
     active          = models.BooleanField(default=True)
     timestamp       = models.DateTimeField(auto_now_add=True)
+    minAge          = models.DecimalField(decimal_places=0, max_digits=100, default=5)
+    maxAge          = models.DecimalField(decimal_places=0, max_digits=100, default=90)
+    gender          = models.CharField(max_length=6, choices=GENDER_CHOICES, default='male')
+    relation        = models.CharField(max_length=6, choices=RELATION_CHOICES, default='brother')
+    intrests        = models.CharField(max_length=6, choices=INTRESTS_CHOICES, default='tech')
+    occupation      = models.CharField(max_length=20, default='ALL')
+    category        = models.CharField(max_length=20, default='ALL')
+    
 
     objects = ProductManager()
 
